@@ -501,3 +501,174 @@ h2 {
         gap: 2rem;
     }
 }
+
+/* --- DASHBOARD WYNIKI (DODATEK) --- */
+
+.dashboard-header {
+    margin-top: 100px; /* Offset na navbar */
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.dashboard-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Wyszukiwarka */
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid #d1d5db;
+    width: 250px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: 0.3s;
+    background: white;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Input pliku (ukryty standardowy, stylowany label) */
+input[type="file"] {
+    display: none;
+}
+
+.btn-upload {
+    background-color: var(--text-dark); /* Ciemny przycisk dla kontrastu */
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-upload:hover {
+    background-color: black;
+    transform: translateY(-2px);
+}
+
+/* Statystyki nad tabelą */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-box span {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.stat-box strong {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-top: 0.5rem;
+}
+
+/* Tabela */
+.table-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Zaokrąglenie rogów tabeli */
+    overflow-x: auto; /* Scroll na mobile */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+thead {
+    background-color: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+th {
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #f9fafb;
+}
+
+/* Style dla miejsc na podium */
+.rank-badge {
+    font-weight: 800;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--text-dark);
+}
+
+.rank-1 { background-color: #fef08a; color: #854d0e; } /* Złoto */
+.rank-2 { background-color: #e5e7eb; color: #374151; } /* Srebro */
+.rank-3 { background-color: #ffedd5; color: #9a3412; } /* Brąz */
+
+.time-cell {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Responsywność dashboardu */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-input { width: 100%; }
+    .dashboard-actions { width: 100%; flex-direction: column; align-items: stretch; }
+    .btn { text-align: center; }
+}

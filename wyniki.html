@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyniki - Wielki Bieg Studentów 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Student<span class="highlight">Run</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="trasa.html">Trasa</a></li>
+            <li><a href="harmonogram.html">Harmonogram</a></li>
+            <li><a href="wyniki.html" class="active">Wyniki</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="#" class="login-link">Zaloguj</a>
+            <a href="#" class="btn btn-primary btn-sm">Rejestracja</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header class="dashboard-header">
+            <div class="dashboard-title">
+                <span class="section-tag">Rezultaty</span>
+                <h1>Tabela Wyników</h1>
+                <p class="subtitle" style="margin-bottom: 0;">Sprawdź swój czas i pozycję w rankingu.</p>
+            </div>
+            
+            <div class="dashboard-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Szukaj zawodnika...">
+                </div>
+                
+                <label for="fileInput" class="btn btn-sm btn-upload">
+                    📂 Importuj XLSX
+                </label>
+                <input type="file" id="fileInput" accept=".xlsx, .xls">
+                
+                <button onclick="resetData()" class="btn btn-sm" style="background: #ef4444; color: white;">Reset</button>
+            </div>
+        </header>
+
+        <div class="dashboard-stats">
+            <div class="stat-box">
+                <span>Ukończyło bieg</span>
+                <strong id="totalRunners">0</strong>
+            </div>
+            <div class="stat-box">
+                <span>Najlepszy Czas</span>
+                <strong id="bestTime">--:--</strong>
+            </div>
+            <div class="stat-box">
+                <span>Średni Czas</span>
+                <strong id="avgTime">--:--</strong>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Miejsce</th>
+                        <th>Nr Startowy</th>
+                        <th>Imię i Nazwisko</th>
+                        <th>Kategoria</th>
+                        <th>Uczelnia / Wydział</th>
+                        <th>Czas</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </div>
+        
+        <p class="fine-print text-center" style="margin-top: 2rem;">
+            * Wyniki nieoficjalne. Czas netto. Importowane dane są zapisywane w Twojej przeglądarce.
+        </p>
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Wielki Bieg Studentów. Design inspired by Me!</p>
+        </div>
+    </footer>
+
+    <script src="wyniki.js"></script>
+</body>
+</html>
